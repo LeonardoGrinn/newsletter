@@ -54,7 +54,7 @@ app.post('/', (req, res) => {
         headers: {
             "Authorization" : "Leo bb3e4a6c2210a0934497ec2786f8b573-us20"
         },
-        //body: jsonData
+        body: jsonData
         
     };
 
@@ -77,8 +77,13 @@ app.post('/failure', (req, res) => {
     res.redirect('/');
 });
 
-//Initialize port.
-app.listen(3000, () => {
+//Initialize port locally.
+// app.listen(3000, () => {
+//     console.log("Server is starting at port 3000");
+// });
+
+//Initialize port on Heroku or locally.
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server is starting at port 3000");
 });
 
